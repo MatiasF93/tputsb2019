@@ -8,6 +8,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 
+import javax.swing.*;
 import java.io.File;
 
 public class PrincipalController {
@@ -26,6 +27,7 @@ public class PrincipalController {
     public Button btnLimpiarFiltros;
     public Button btnContar;
     public Button btnSalir;
+    private boolean datosCargados = false;
     private static Gestor gestor;
 
     public void btnCargarRegionesClick(ActionEvent actionEvent){
@@ -48,4 +50,61 @@ public class PrincipalController {
             txtRuta.setText(seleccionado.getAbsolutePath());
         }
     }
+
+    public void btnImportarDatosClick(ActionEvent actionEvent)
+    {
+        if (txtPostulaciones.getText().equals("") || txtConteos.getText().equals("") || txtRegiones.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Falta cargar archivos de datos.");
+            return;}
+        else {
+            try {
+                gestor = new Gestor();
+                datosCargados = true;
+                btnCargarPostulaciones.setDisable(true);
+                btnImportarDatos.setDisable(true);
+                btnCargarRegiones.setDisable(true);
+                btnCargarConteos.setDisable(true);
+                cmbCandidato.setDisable(false);
+                cmbCircuito.setDisable(false);
+                cmbSeccion.setDisable(false);
+                cmbDistrito.setDisable(false);
+            }
+            catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Se produjo un error. Por favor revise los archivos cargados.");
+            }
+        }
+    }
+
+    public void cmbCircuitoSelection(ActionEvent actionEvent) {
+
+    }
+
+    public void cmbSeccionSelection(ActionEvent actionEvent) {
+
+    }
+
+    public void cmbDistritoSelection(ActionEvent actionEvent) {
+
+    }
+
+    public void cmbCandidatoSelection(ActionEvent actionEvent) {
+
+    }
+
+    public void chbIncluirTodosChecked(ActionEvent actionEvent) {
+
+    }
+
+    public void btnLimpiarFiltrosClick(ActionEvent actionEvent) {
+
+    }
+
+    public void btnContarClick(ActionEvent actionEvent) {
+
+    }
+
+    public void btnSalirClick(ActionEvent actionEvent) {
+        System.exit(0);
+    }
+
 }

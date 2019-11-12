@@ -12,8 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="interfaces.PrincipalController">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.PrincipalController">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -28,7 +27,7 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="61.0" text="Para iniciar, por favor seleccione o ingrese las rutas de los archivos de datos a utilizar">
+            <Label layoutX="35.0" layoutY="70.0" text="Para iniciar, por favor seleccione o ingrese las rutas de los archivos de datos a utilizar">
                <font>
                   <Font size="14.0" />
                </font>
@@ -36,39 +35,39 @@
             <Label layoutX="14.0" layoutY="115.0" text="Postulaciones" />
             <Label layoutX="37.0" layoutY="148.0" text="Regiones" />
             <Label layoutX="41.0" layoutY="181.0" text="Conteos" />
-            <TextField layoutX="101.0" layoutY="111.0" prefHeight="25.0" prefWidth="392.0" />
-            <TextField layoutX="101.0" layoutY="144.0" prefHeight="25.0" prefWidth="392.0" />
-            <TextField layoutX="101.0" layoutY="177.0" prefHeight="25.0" prefWidth="392.0" />
-            <Button layoutX="511.0" layoutY="111.0" mnemonicParsing="false" text="Cargar" />
-            <Button layoutX="511.0" layoutY="144.0" mnemonicParsing="false" text="Cargar" />
-            <Button layoutX="511.0" layoutY="177.0" mnemonicParsing="false" text="Cargar" />
+            <TextField fx:id="txtPostulaciones" layoutX="101.0" layoutY="111.0" prefHeight="25.0" prefWidth="392.0" />
+            <TextField fx:id="txtRegiones" layoutX="101.0" layoutY="144.0" prefHeight="25.0" prefWidth="392.0" />
+            <TextField fx:id="txtConteos" layoutX="101.0" layoutY="177.0" prefHeight="25.0" prefWidth="392.0" />
+            <Button fx:id="btnCargarPostulaciones" layoutX="511.0" layoutY="111.0" mnemonicParsing="false" onAction="#btnCargarPostulacionesClick" text="Cargar" />
+            <Button fx:id="btnCargarRegiones" layoutX="511.0" layoutY="144.0" mnemonicParsing="false" onAction="#btnCargarRegionesClick" text="Cargar" />
+            <Button fx:id="btnCargarConteos" layoutX="511.0" layoutY="177.0" mnemonicParsing="false" onAction="#btnCargarConteosClick" text="Cargar" />
             <Separator layoutX="14.0" layoutY="255.0" prefHeight="2.0" prefWidth="553.0" />
-            <Button layoutX="218.0" layoutY="215.0" mnemonicParsing="false" text="Importar datos de archivos" />
+            <Button fx:id="btnImportarDatos" layoutX="218.0" layoutY="215.0" mnemonicParsing="false" onAction="#btnImportarDatosClick" text="Importar datos de archivos" />
             <Label layoutX="25.0" layoutY="304.0" text="Distrito:" />
-            <ComboBox disable="true" layoutX="78.0" layoutY="300.0" prefHeight="25.0" prefWidth="201.0" />
+            <ComboBox fx:id="cmbDistrito" disable="true" layoutX="78.0" layoutY="300.0" onAction="#cmbDistritoSelection" prefHeight="25.0" prefWidth="201.0" />
             <Label layoutX="308.0" layoutY="304.0" text="Sección:" />
-            <ComboBox disable="true" layoutX="361.0" layoutY="300.0" prefHeight="25.0" prefWidth="201.0" />
+            <ComboBox fx:id="cmbSeccion" disable="true" layoutX="361.0" layoutY="300.0" onAction="#cmbSeccionSelection" prefHeight="25.0" prefWidth="201.0" />
             <Label layoutX="23.0" layoutY="338.0" text="Circuito:" />
-            <ComboBox disable="true" layoutX="78.0" layoutY="334.0" prefHeight="25.0" prefWidth="201.0" />
+            <ComboBox fx:id="cmbCircuito" disable="true" layoutX="78.0" layoutY="334.0" onAction="#cmbCircuitoSelection" prefHeight="25.0" prefWidth="201.0" />
             <Label layoutX="23.0" layoutY="273.0" text="Filtro de regiones">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="23.0" layoutY="388.0" text="Filtro de candidato:" >
+            <Label layoutX="23.0" layoutY="388.0" text="Filtro de candidato:">
                 <font>
                     <Font name="System Bold" size="12.0" />
                 </font>
             </Label>
-            <ComboBox disable="true" layoutX="143.0" layoutY="384.0" prefHeight="25.0" prefWidth="240.0" />
-            <CheckBox disable="true" layoutX="25.0" layoutY="436.0" mnemonicParsing="false" text="Incluir todos" />
-            <Button disable="true" layoutX="492.0" layoutY="432.0" mnemonicParsing="false" text="Limpiar filtros" />
-            <Button disable="true" layoutX="236.0" layoutY="476.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="134.0" text="Comenzar conteo" >
+            <ComboBox fx:id="cmbCandidato" disable="true" layoutX="143.0" layoutY="384.0" onAction="#cmbCandidatoSelection" prefHeight="25.0" prefWidth="240.0" />
+            <CheckBox fx:id="chbIncluirTodos" disable="true" layoutX="25.0" layoutY="436.0" mnemonicParsing="false" onAction="#chbIncluirTodosChecked" text="Incluir todos" />
+            <Button fx:id="btnLimpiarFiltros" disable="true" layoutX="492.0" layoutY="432.0" mnemonicParsing="false" onAction="#btnLimpiarFiltrosClick" text="Limpiar filtros" />
+            <Button fx:id="btnContar" disable="true" layoutX="236.0" layoutY="476.0" mnemonicParsing="false" onAction="#btnContarClick" prefHeight="45.0" prefWidth="134.0" text="Comenzar conteo">
                 <font>
                     <Font name="System Bold" size="12.0" />
                 </font>
             </Button>
-            <Button layoutX="510.0" layoutY="498.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="66.0" text="Salir" />
+            <Button fx:id="btnSalir" layoutX="510.0" layoutY="498.0" mnemonicParsing="false" onAction="#btnSalirClick" prefHeight="35.0" prefWidth="66.0" text="Salir" />
          </children>
       </Pane>
    </children>
